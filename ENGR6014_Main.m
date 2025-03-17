@@ -42,7 +42,7 @@ Motor_torque_lookup = [0 2000 4000 6000 8000 10000 12000 14000 16000 18000; ...
 Radius_corner       = [65 55 15 35];        % Radius of each corner [m]
 Angle_corner        = [90 30 147 93];       % Angle of each corner [deg]
 Length_straight     = [325 360 688 144];    % Length of each straight [m]
-%PENIS%/////
+%PENIS%vagina
 
 %Simulation parameters
 Delta_S             = 0.1;   % Calculation step size interval [m]
@@ -62,7 +62,7 @@ for i = 1:length(Radius_corner)
     F_Z_Total(i) = F_Z_Front(i)+F_Z_Rear(i);
     FwdDrive(i) = mu_lat*(F_Z_Rear(i));
 
-    accel_Long(i) = (FDrive(i)-Drag_force(i))/m;
+    accel_Long(i) = (FwdDrive(i)-Drag_force(i))/m;
 
 
 
