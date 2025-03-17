@@ -62,7 +62,7 @@ for i = 1:length(Radius_corner)
     F_Z_Total(i) = F_Z_Front(i)+F_Z_Rear(i);
     FwdDrive(i) = mu_lat*(F_Z_Rear(i));
 
-    accel_Long(i) = (FDrive(i)-Drag_force(i))/m;
+    accel_Long(i) = (FwdDrive(i)-Drag_force(i))/m;
 
 
 
