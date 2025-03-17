@@ -59,10 +59,70 @@ for i = 1:length(Radius_corner)
     F_Z_Front(i) = Df_front(i) + (m*D_weight)*g;
     F_Z_Rear(i) = Df_Rear(i) + (m*(1-D_weight)*g);
     F_Z_Total(i) = F_Z_Front(i)+F_Z_Rear(i);
-    FDrive(i) = mu*(F_Z_Rear(i));
+    FwdDrive(i) = mu_lat*(F_Z_Rear(i));
 
-    ax(i) = (FDrive(i)-Drag_force(i))/m;
+    accel_Long(i) = (FDrive(i)-Drag_force(i))/m;
 
 
 
 end
+
+% Baseline Simulator Marking Criteria:
+%   Your lap time simulators should consider the following sub-systems, and calculate the following quantities
+%   and store them as vectors in MATLAB upon running of your codes (specific units that each quantity needs to
+%   be calculated in indicated in brackets):
+
+% A. Cornering Capabilities
+%   Calculate the following cornering-related properties and resulting vehicle cornering capabilities to complete
+%   the corner sections considered across the circuit:
+%       ● Distance covered (travelled) in corner (m)
+%       ● Cornering speed (m/s)
+%       ● Elapsed time to complete corner (s)
+%       ● Lateral (centripetal) acceleration in corner (m/s2)
+% 12 marks
+% B. Driving Capabilities
+%   Calculate the acceleration capabilities under driving conditions upon the corner exit, assuming no braking
+%   occurs in the straight-line section. For all the straight-line sections considered, calculate at each iteration:
+%       ● Motor torque (Nm)
+%       ● Total vertical load on rear wheels (N)
+%       ● Traction-limited acceleration (m/s2)
+%       ● Power-limited acceleration (m/s2)
+%       ● Actual acceleration (m/s2)
+%       ● Speed (m/s)
+%           24 marks
+% C. Braking Capabilities
+%   Assuming brakes are released fully at the instant of corner entry, calculate the deceleration capabilities
+%   prior to corner entry, assuming no driving occurs in the straight-line section considered.
+%       ● Speed (m/s)
+%       ● Drag force (N)
+%       ● Downforce (N)
+%       ● Deceleration (m/s2)
+%           16 marks
+% D. Complete Straight-line Behaviour
+%   By considering the crossover points between the driving and braking calculation performed in above steps,
+%   calculate the following for each one of the straight-line sections considered (from previous corner exit to
+%   next corner entry):
+%       ● Resulting acceleration profile (m/s2)
+%       ● Resulting speed profile (m/s)
+%       ● Time to complete each straight-line section (s)
+%           4marks
+% E. Complete Circuit Behaviour
+%   In this step you should compile the relevant information from all previous calculations to build a complete
+%   lap of the track.
+%       ● Total time taken to complete a lap of the circuit displayed in the command window
+%       ● MATLAB plots (automatically generated upon running the code) for the velocity trace (km/h),
+%         acceleration trace (g) in the longitudinal and lateral directions as a function of distance travelled (m)
+%           4 marks
+% F. Simulator efficiency, flexibility, and clarity for future development
+%   A good lap time simulator will perform the calculations as quickly as possible (while providing a good user
+%   experience), in order that the simulator can run thousands of laps with different setup configurations in a
+%   minimal amount of time. When assessing the performance of your codes, the following criteria will be
+%   checked:
+%       ● Efficiency: which will be measured in terms of how long it takes for your code to produce the required
+%        results. Therefore, whilst developing your simulators you should consider how to structure it in a
+%        computationally efficient manner.
+%       ● Flexibility: which will be measured in terms of ease of changing parameters or circuit profiles by a 3rd
+%        party.
+%       ● Clarity: which will be measured in terms of inclusion of clearly annotated comments throughout the
+%        code, such that it can be debugged or further developed by a 3rd party. Therefore, your annotations
+%        should be helpful and informative yet concise.
